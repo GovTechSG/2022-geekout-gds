@@ -1,0 +1,285 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TODO backend",
+    "description": "TODO list backend for GDS workshop",
+    "version": "1.0.0",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "paths": {
+    "/api/todos": {
+      "post": {
+        "tags": ["todo"],
+        "summary": "Adds a new task",
+        "requestBody": {
+          "description": "Task that needs to be done",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "description": "New task"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/todos"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error",
+                  "example": {
+                    "message": "Description of new task is required"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["todo"],
+        "summary": "Gets all tasks",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/todos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/todos/{id}": {
+      "get": {
+        "tags": ["todo"],
+        "summary": "Gets task by UUID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/todo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Cannot.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error",
+                  "example": {
+                    "message": "UUID does not exist"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["todo"],
+        "summary": "Updates an existing task",
+        "requestBody": {
+          "description": "Value of updated Task",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/todo"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Cannot.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error",
+                  "example": {
+                    "message": "UUID does not exist"
+                  }
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict with server",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error",
+                  "example": {
+                    "message": "UUID in path and body do not match"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["todo"],
+        "summary": "Deletes task",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Cannot.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error",
+                  "example": {
+                    "message": "UUID does not exist"
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Protected resource",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error",
+                  "example": {
+                    "message": "This todo cannot be deleted"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/todos/random": {
+      "post": {
+        "tags": ["todo"],
+        "summary": "Returns a random todo",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/todo"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Cannot.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error",
+                  "example": {
+                    "message": "Request from external api timed out"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "todo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "done": {
+            "type": "boolean"
+          }
+        }
+      },
+      "todos": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/todo"
+        }
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

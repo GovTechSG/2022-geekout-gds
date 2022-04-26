@@ -1,0 +1,38 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Todo Backend API",
+  "main": "index.js",
+  "scripts": {
+    "test:0": "jest",
+    "test:1": "CHECKPOINT=1 jest",
+    "test:2": "CHECKPOINT=2 jest",
+    "test:extra": "CHECKPOINT=3 jest",
+    "start": "nodemon src/App.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.2",
+    "swagger-ui-express": "^4.1.6",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.1",
+    "@types/node-fetch": "^2.5.3",
+    "@types/supertest": "^2.0.11",
+    "@types/swagger-ui-express": "^4.1.3",
+    "@types/uuid": "^8.3.1",
+    "jest": "^27.2.0",
+    "ts-jest": "^27.0.5",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.4.2"
+  }
+}
