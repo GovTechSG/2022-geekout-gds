@@ -70,13 +70,17 @@ function Todo(props: TodoProps) {
     onRefreshClicked();
   }, [onRefreshClicked]);
 
-  async function submitNewTodo() {
-    const newTodo = {
-      description: newTodoDescription,
-    };
-    await axios.post(`/api/todos`, newTodo);
-    await populateTodos();
-    setNewTodoDescription('');
+   async function submitNewTodo() {
+    if (newTodoDescription.trim() !== '') {
+      const newTodo = {
+        description: newTodoDescription,
+      };
+      await axios.post(`/api/todos`, newTodo);
+      await populateTodos();
+      setNewTodoDescription('');
+    } else {
+      alert('Invalid Todo input!');
+    }
   }
 
   return (
