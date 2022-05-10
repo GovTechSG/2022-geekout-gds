@@ -50,14 +50,18 @@ function Todo(props: TodoProps) {
   const [todoItems, setTodoItems] = useState<{ [id: string]: TodoItemProps }>({});
   const [newTodoDescription, setNewTodoDescription] = useState('');
 
+  const [isRefresh, setIsRefresh] = useState(false);
   const populateTodos = useCallback(async () => {
     const result = await axios.get(`${CONFIG.API_ENDPOINT}/todos`);
     setTodoItems(result.data);
   }, []);
 
   const onRefreshClicked = useCallback(async () => {
-    console.log('Refresh button clicked');
-    /* refresh todos here */
+    setIsRefresh(true);
+    setTimeout(async () => {
+      await populateTodos();
+      setIsRefresh(false);
+    }, 400);
   }, [populateTodos]);
 
   useEffect(() => {
@@ -65,7 +69,6 @@ function Todo(props: TodoProps) {
   }, [onRefreshClicked]);
 
   async function submitNewTodo() {
-    /* validate todos here */
     const newTodo = {
       description: newTodoDescription,
     };
@@ -98,7 +101,9 @@ function Todo(props: TodoProps) {
                       <Button isPrimary isLoading={false}>Submit</Button>
                     </Col>
                     <Col>
-                      {/* insert button here */}
+                      <Button type="button" isOutline isLoading={isRefresh} onClick={onRefreshClicked}>
+                        <span className='sgds-icon sgds-icon-refresh' />
+                      </Button>
                     </Col>
                   </Row>
                 </div>
