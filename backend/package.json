@@ -7,7 +7,7 @@
     "test:0": "jest",
     "test:1": "CHECKPOINT=1 jest",
     "test:2": "CHECKPOINT=2 jest",
-    "test:extra": "CHECKPOINT=3 jest",
+    "test:3": "CHECKPOINT=3 jest",
     "start": "nodemon src/App.ts"
   },
   "keywords": [],

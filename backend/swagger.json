@@ -217,37 +217,6 @@
           }
         }
       }
-    },
-    "/api/todos/random": {
-      "post": {
-        "tags": ["todo"],
-        "summary": "Returns a random todo",
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/todo"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Cannot.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/error",
-                  "example": {
-                    "message": "Request from external api timed out"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
