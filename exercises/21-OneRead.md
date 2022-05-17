@@ -20,4 +20,4 @@ Implement the method for this route `/todos/:id` which return a single object ba
 
 Once more, when your code is complete, `npm run test:1` to verify. With the `"GET /todos/{id}"` tests passing, the total should now be `4 skipped, 5 passed, 9 total`
 
-[Back to Exercises](./README.md) | [Next Exercise >](./22-NotNeeded.md)
+[Back to Exercises](./README.md) | [Solution](../solutions/21-OneRead.md)| [Next Exercise >](./22-NotNeeded.md)

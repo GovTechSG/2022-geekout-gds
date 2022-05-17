@@ -28,4 +28,4 @@ When your code is complete, `npm run test:3`. You should find that 2 more tests 
 
 The total should now be `9 passed, 9 total`. Ignore the errors for now, we will be addressing them below.
 
-[Back to Exercises](./README.md)
+[Back to Exercises](./README.md) | [Solution](../solutions/23-UpdateOutdated.md)
