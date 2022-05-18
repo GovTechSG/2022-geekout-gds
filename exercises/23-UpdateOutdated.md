@@ -18,14 +18,16 @@ npm run test:3
 At this point you should have `2 failed, 7 passed, 9 total` but as we progress through today's walkthrough we will be running more tests.
 
 ## Update
-Right now, `updateTodoById` is stubbed out, returning the HTTP code for Not Implemented.
+In `index.ts`, you'll notice that we expose a Update method as a `PUT` call to `/todos/:id`. However, the implementation is stubbed and will require further work to ensure proper update of the specific item.
 
-Edit the code - it should modify the `todoList` and return `200` upon success. For more details, navigate to the `swagger.json` documentation to check intended behaviour. Or, if you prefer to use a UI, start up Docker compose and find the docs [locally hosted](http://localhost:3001/swagger).
+Implement the method for this route `/todos/:id` which will update a single object based on `id`. For experienced devs, this will be super easy, but just in case, here's a checklist of files you should be touching:
 
-> **At this point you only need to implement return codes 200 and 400**
+| File      | Necessary work |
+| ----------- | ----------- |
+| `newMethods.ts`   | Implement the `updateTodoById` method. Remember to handle error cases such as item does not exist! |
 
 When your code is complete, `npm run test:3`. You should find that 2 more tests (`"PUT /todos/{id}"`) are passing!
 
-The total should now be `9 passed, 9 total`. Ignore the errors for now, we will be addressing them below.
+The total should now be `9 passed, 9 total`.
 
 [Back to Exercises](./README.md) | [Solution](../solutions/23-UpdateOutdated.md)

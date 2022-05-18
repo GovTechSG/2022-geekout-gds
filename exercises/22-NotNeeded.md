@@ -27,4 +27,4 @@ Implement the method for this route `/todos/:id` which will delete a single obje
 
 Once more, when your code is complete, `npm run test:2` to verify. With the `"GET /todos/{id}"` tests passing, the total should now be `2 skipped, 7 passed, 9 total`
 
-[Back to Exercises](./README.md) | [Solution](../solutions/22-NotNeeded.md)| [Next Exercise >](./23-UpdateOutdated.md)
+[Back to Exercises](./README.md) | [Solution](../solutions/22-NotNeeded.md) | [Next Exercise >](./23-UpdateOutdated.md)

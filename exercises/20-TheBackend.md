@@ -9,8 +9,8 @@ Navigate to `backend/src/routes`. You'll find the following files:
 | File      | Description |
 | ----------- | ----------- |
 | `index.ts`      | A cosmetic holder for all routes / methods supported. Most importantly, it does `default export` of an `express.Router()`, which will be used by the App  |
-| `methods.ts`   | Create, Read and Delete have been implemented here |
-| `newMethods.ts`   | You will implement 2 remaining methods (Read single and Update) here |
+| `methods.ts`   | Create and Read have been implemented here |
+| `newMethods.ts`   | You will implement 3 remaining methods (Read single, Delete and Update) here |
 
 ## Setting up
 ```
