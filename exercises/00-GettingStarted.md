@@ -13,7 +13,7 @@ Firstly, clone this repository and navigate into the main codebase
 ```console
 git clone <your-repo-here>
 git fetch
-cd 2021-bootcamp-gds
+cd 2022-geekout-gds
 ```
 
 Checkout to the exercise branch
@@ -31,11 +31,11 @@ docker-compose up --build
 If running docker compose in detached mode instead (`docker-compose up --build --detach`), viewing the logs of a container is simple:
 
 ```console
-docker logs 2021-bootcamp-gds_frontend_1
+docker logs 2022-geekout-gds_frontend_1
 ```
 
 ```console
-docker logs 2021-bootcamp-gds_backend_1
+docker logs 2022-geekout-gds_backend_1
 ```
 
 To tear down the environment:
@@ -55,4 +55,4 @@ Help is always just a click away (at the bottom of the page).
 
 ---
 
-[Back to Exercises](../exercises/README.md) | [Solution](../solutions/00-GettingStarted.md) | | [Next Exercise >](./10-TheFrontend.md)
+[Back to Exercises](../exercises/README.md) | [Next Exercise >](./10-TheFrontend.md)
