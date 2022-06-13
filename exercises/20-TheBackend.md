@@ -4,13 +4,21 @@
 
 So far, the front-end app has been supported by a backend which provides persistence. As a warm-up, we're going to complete an implementation of the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) interface.
 
+At this point of time, to start your exercises, please checkout to the exercise branch 
+
+## Navigating to the right branch
+```
+git fetch origin exercises/backend
+git checkout exercises/backend
+```
+
 Navigate to `backend/src/routes`. You'll find the following files:
 
-| File      | Description |
-| ----------- | ----------- |
-| `index.ts`      | A cosmetic holder for all routes / methods supported. Most importantly, it does `default export` of an `express.Router()`, which will be used by the App  |
-| `methods.ts`   | Create and Read have been implemented here |
-| `newMethods.ts`   | You will implement 3 remaining methods (Read single, Delete and Update) here |
+| File            | Description                                                                                                                                              |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `index.ts`      | A cosmetic holder for all routes / methods supported. Most importantly, it does `default export` of an `express.Router()`, which will be used by the App |
+| `methods.ts`    | Create and Read have been implemented here                                                                                                               |
+| `newMethods.ts` | You will implement 3 remaining methods (Read single, Delete and Update) here                                                                             |
 
 ## Setting up
 ```
