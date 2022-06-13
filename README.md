@@ -1,6 +1,6 @@
 # Geekout - Government Digital Services - 2022
 
-A simple web application which implements a Todo list.
+A simple web application which implements a Todo list
 
 ![Screenshot 2021-09-22 at 10 34 23 PM](https://user-images.githubusercontent.com/710625/134364024-524fa9f5-fddc-4110-a6fc-98ad32cb25b0.png)
 
