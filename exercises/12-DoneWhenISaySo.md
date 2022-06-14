@@ -4,7 +4,7 @@
 
 > `git checkout frontend/checkpoint-1`
 
-[Back to Exercises ](./README.md) | [Next Exercise >](./13-StretchGoals.md)
+[Back to Exercises ](./README.md) | [Next Exercise >](./13-PreventingMistakes.md)
 
 Visual feedback is an important way of communicating with the user.
 
